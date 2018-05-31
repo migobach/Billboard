@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  before_action :set_board
+  before_action :set_artist, except: [:index, :new, :create]
 
   def index
     @artists = @board.artists.all
@@ -21,13 +23,14 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    render :form
   end
 
   def update
     if @artist.update(artist_params)
       redirect_to board_artist_path(@board, @artist)
     else
-      render :edit
+      render :form
     end
   end
 
@@ -44,5 +47,5 @@ class ArtistsController < ApplicationController
 
   def set_board
     @board = Board.find(params[:board_id])
-  end 
+  end
 end

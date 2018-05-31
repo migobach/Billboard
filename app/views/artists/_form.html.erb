@@ -1,12 +1,10 @@
+<h1><%= @artist.id ? 'Edit Artist' : 'Create Artist' %></h1>
+
 <div class='container'>
   <%= form_for [@board, @artist] do |f| %>
     <div>
       <%= f.label :name %>
       <%= f.text_field :name %>
-    </div>
-    <div>
-      <%= f.label :genre %>
-      <%= f.text_field :genre %>
     </div>
     <%= f.submit class: 'btn green black-text' %>
   <% end %>
