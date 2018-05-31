@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+ 5.times do 
+  board = Board.create(
+    genre: Faker::Music.genre
+  )
+  10.times do
+    board.artists.create(
+      name: Faker::Music.band
+    )
+  end
+end
+
+puts "seeded"
