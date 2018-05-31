@@ -1,11 +1,11 @@
 <h1>Artists</h1>
 
-<%= link_to 'Add an Artist' new_board_artist(@board) %>
+<%= link_to 'Add an Artist', new_board_artist_path(@board) %>
 
 <ul>
   <% @artists.each do |artist| %>
   <li>
-    <%= link_to artist.song, [@board, artist] %>
+    <%= link_to artist.name, [@board, artist] %>
   </li>
   <% end %>
 </ul>

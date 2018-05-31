@@ -1,9 +1,9 @@
 class ArtistsController < ApplicationController
   before_action :set_board
-  before_action :set_artist, except: [:index, :new, :create]
+  before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   def index
-    @artists = @board.artists.all
+    @artists = @board.artists
   end
 
   def show
@@ -11,41 +11,48 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = @board.artists.new
-  end
-
-  def create
-    @artist = @board.artists.new(artist_params)
-    if @artist.save
-      redirect_to board_artist_path(@board, @artist)
-    else
-      render :new
-    end
+    render :form
   end
 
   def edit
     render :form
   end
 
+  def create
+    @artist = @board.artists.create(artist_params)
+    if @artist.save
+      redirect_to [@board, @artist]
+    else
+      render :new
+    end
+  end
+
+
   def update
     if @artist.update(artist_params)
-      redirect_to board_artist_path(@board, @artist)
+      redirect_to [@board, @artist]
     else
-      render :form
+      render :form #maybe :edit?
     end
   end
 
   def destroy
     @artist.destroy
-    redirect_to board_artist_path(@board)
+    redirect_to board_artists_path
   end
 
   private
 
-  def artist_params
-    params.require(:artist).permit(:name, :genre, :rating)
-  end
-
-  def set_board
+  def set_board 
     @board = Board.find(params[:board_id])
   end
+  
+  def set_artist
+    @artist = Artist.find(params[:id])
+  end
+  
+  def artist_params
+    params.require(:artist).permit(:name)
+  end
+
 end
