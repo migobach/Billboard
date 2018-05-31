@@ -1,2 +1,7 @@
-<h1>Boards#show</h1>
-<p>Find me in app/views/boards/show.html.erb</p>
+<h1><%= @board.genre %></h1>
+
+<p>What would you like to do?</p>
+
+<%= link_to 'View Artist', board_artists_path(@board) %>
+<%= link_to 'Edit Board', edit_board_path(@board) %>
+<%= link_to 'Delete Board', @board, method: :delete %>

@@ -1,2 +1,12 @@
-<h1>Boards#index</h1>
-<p>Find me in app/views/boards/index.html.erb</p>
+<h1>Billboard of Bad Songs</h1>
+
+<%= link_to 'Create New Board', new_board_path %>
+
+<ul>
+  <% @boards.each do |board| %>
+    <li>
+      <%= link_to board.genre, board %>
+    </li>
+  <% end %>
+</ul>
+
