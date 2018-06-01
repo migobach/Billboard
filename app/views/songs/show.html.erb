@@ -1,16 +1,4 @@
-<h1><%= @artist.name %>'s Songs</h1>
 
-<% @artist.songs.each do |song| %>
-  <ul>
-    <li>
-      <p>Song: <%= link_to song.title, song %></p>
-      <p>Rating: <%= link_to song.rating, song %></p>
-
-      <%= link_to 'Edit Song', edit_artist_song(@artist, song) %>
-      <%= link_to 'Delete Song', artist_song(@artist, song), method: :delete %>
-    </li>
-  </ul>
-<% end %>
 
 
 

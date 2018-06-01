@@ -10,9 +10,15 @@
     genre: Faker::Music.genre
   )
   10.times do
-    board.artists.create(
+    artist = board.artists.create(
       name: Faker::Music.band
     )
+    10.times do
+      artist.songs.create(
+        title: Faker::Music.album,
+        rating: Faker::Number.between(1, 10)
+      )
+    end
   end
 end
 
