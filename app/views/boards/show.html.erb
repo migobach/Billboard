@@ -2,6 +2,8 @@
 
 <p>What would you like to do?</p>
 
-<%= link_to 'View Artist', board_artists_path(@board) %>
+
+<%= link_to 'See Board Artists', board_artist_path(@board)%>
+<%= link_to 'Add Artist', new_board_artist_path(@board) %>
 <%= link_to 'Edit Board', edit_board_path(@board) %>
 <%= link_to 'Delete Board', @board, method: :delete %>

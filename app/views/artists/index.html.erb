@@ -5,7 +5,8 @@
 <ul>
   <% @artists.each do |artist| %>
   <li>
-    <%= link_to artist.name, [@board, artist] %>
+    <%= link_to artist.name, artist %>
+  
   </li>
   <% end %>
 </ul>

@@ -1,4 +1,4 @@
-<h1 class='center'> <%= @artist.name %> </h1>
+<h1><%= @artist.name %> </h1>
 
+<h4><%= link_to 'Add a Song', new_artist_song_path(@artist) %></h4>
 
-<h4 class='center'><%= link_to 'Add a Song', artist_songs_path(@board, @artist) %></h4>
