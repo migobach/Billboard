@@ -16,6 +16,7 @@ class ArtistsController < ApplicationController
 
   def edit
     render :form
+    # redirect_to [@board, @artist]
   end
 
   def create
